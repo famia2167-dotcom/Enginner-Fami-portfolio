@@ -1,380 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fami Abdi Siraj | Engineering Portfolio</title>
+  <meta name="description" content="Fami Abdi Siraj — Mechanical Engineering, Software Development, AI, Robotics and Drone Technology.">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Fami Abdi Siraj | Engineering & Technology</title>
 
-<style>
+  <style>
+    :root {
+      --bg: #06101d;
+      --panel: rgba(12, 27, 44, 0.94);
+      --green: #00f5a0;
+      --cyan: #58dcff;
+      --red: #ff5364;
+      --text: #eef6ff;
+      --muted: #b0bfd1;
+      --line: rgba(132, 190, 225, 0.22);
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-html{
-scroll-behavior:smooth;
-}
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 12% 12%,
+          rgba(0, 245, 160, 0.12), transparent 30%),
+        radial-gradient(ellipse at 88% 25%,
+          rgba(88, 220, 255, 0.12), transparent 32%),
+        linear-gradient(135deg, #050b14, #0a192a 58%, #050d18);
 
-body{
-background:linear-gradient(135deg,#0b1120,#172033,#0f172a);
-color:#ffffff;
-line-height:1.8;
-}
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
 
-/* HEADER */
+    body::before {
+      content:
+        "F = ma   E = mc²   a² + b² = c²   eⁱπ + 1 = 0   PV = nRT   ∇ · B = 0";
 
-header{
-text-align:center;
-padding:70px 20px;
-background:#111827;
-border-bottom:4px solid #00ff99;
-box-shadow:0 4px 20px rgba(0,255,153,0.15);
-}
+      position: fixed;
+      inset: -10%;
+      z-index: -1;
+      pointer-events: none;
+      color: #b5e8ff;
+      opacity: 0.055;
+      font: 26px/3.8 Georgia, serif;
+      letter-spacing: 4px;
+      word-spacing: 18px;
+      transform: rotate(-8deg);
+      overflow: hidden;
+    }
 
-header h1{
-font-size:45px;
-color:#00ff99;
-margin-bottom:10px;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-header h2{
-font-size:22px;
-color:#d1d5db;
-font-weight:normal;
-margin-bottom:12px;
-}
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
 
-header p{
-color:#9ca3af;
-font-size:18px;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(4, 12, 22, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
 
-/* BUTTON */
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
 
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:14px 22px;
-background:#00ff99;
-color:#000;
-font-weight:bold;
-text-decoration:none;
-border-radius:12px;
-transition:0.3s;
-}
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+    }
 
-.btn:hover{
-background:#ffffff;
-transform:scale(1.05);
-}
+    .brand span {
+      color: var(--green);
+    }
 
-/* CONTAINER */
+    .navlinks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
 
-.container{
-width:90%;
-max-width:1100px;
-margin:auto;
-padding:40px 0;
-}
+    .navlinks a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(13, 30, 48, 0.8);
+      color: var(--muted);
+      font-size: 0.88rem;
+      transition: 0.2s;
+    }
 
-/* CARD */
+    .navlinks a:hover,
+    .navlinks a:focus-visible {
+      color: var(--green);
+      border-color: var(--green);
+      background: rgba(0, 245, 160, 0.08);
+      outline: none;
+    }
 
-.card{
-background:#1f2937;
-padding:30px;
-margin:25px 0;
-border-radius:20px;
-box-shadow:0 8px 20px rgba(0,0,0,0.25);
-transition:0.3s;
-}
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      align-items: center;
+      gap: 52px;
+      padding: 76px 0;
+    }
 
-.card:hover{
-transform:translateY(-5px);
-}
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
 
-.card h2{
-color:#00ff99;
-margin-bottom:20px;
-font-size:30px;
-}
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      line-height: 1.08;
+      margin: 15px 0;
+    }
 
-/* ABOUT */
+    .name-gradient {
+      background: linear-gradient(90deg, var(--green), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-.about-text{
-font-size:18px;
-color:#d1d5db;
-}
+    .hero h2 {
+      font-size: clamp(1.08rem, 2.4vw, 1.5rem);
+      font-weight: 500;
+      color: var(--cyan);
+      margin: 0 0 18px;
+    }
 
-/* SKILLS */
+    p {
+      color: var(--muted);
+    }
 
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-}
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
 
-.skill{
-background:#00ff99;
-color:#000;
-padding:12px 18px;
-border-radius:25px;
-font-weight:bold;
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 1px solid var(--green);
+      border-radius: 8px;
+      font-weight: 800;
+      background: rgba(10, 28, 43, 0.85);
+      transition: 0.2s;
+    }
 
-/* PROJECTS */
+    .btn.primary {
+      background: var(--green);
+      color: #04111b;
+    }
 
-.project{
-background:#374151;
-padding:25px;
-border-radius:18px;
-margin-top:20px;
-border-left:5px solid red;
-}
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 245, 160, 0.15);
+    }
 
-.project h3{
-color:red;
-font-size:28px;
-margin-bottom:15px;
-}
+    .portrait-wrap {
+      position: relative;
+      width: min(100%, 350px);
+      margin: auto;
+    }
 
-.project p{
-font-size:18px;
-color:#d1d5db;
-}
+    .portrait-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -10px;
+      border: 1px solid var(--green);
+      border-radius: 20px;
+      transform: rotate(3deg);
+      opacity: 0.7;
+      pointer-events: none;
+    }
 
-/* CONTACT */
+    .portrait {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      object-position: center 22%;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #142b42, #081321);
+    }
 
-.contact-icons{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-margin-top:20px;
-}
+    .photo-caption {
+      margin: 14px 0 0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
 
-.contact-icons a{
-width:65px;
-height:65px;
-background:#00ff99;
-display:flex;
-justify-content:center;
-align-items:center;
-border-radius:50%;
-font-size:28px;
-color:#000;
-text-decoration:none;
-transition:0.3s;
-}
+    section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 95px;
+    }
 
-.contact-icons a:hover{
-background:#fff;
-transform:scale(1.1);
-}
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      margin: 0 0 12px;
+      padding-bottom: 14px;
+    }
 
-/* FOOTER */
+    .section-title span {
+      color: var(--green);
+    }
 
-footer{
-text-align:center;
-padding:30px;
-background:#111827;
-margin-top:40px;
-border-top:2px solid #00ff99;
-}
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 76px;
+      height: 3px;
+      margin: 12px auto 0;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--green), var(--cyan));
+    }
 
-footer p{
-color:#9ca3af;
-}
+    .section-intro {
+      max-width: 700px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
 
-/* MOBILE */
+    .box,
+    .card {
+      padding: 24px;
+      border: 1px solid rgba(88, 220, 255, 0.22);
+      border-radius: 14px;
+      background: var(--panel);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+    }
 
-@media(max-width:768px){
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
 
-header h1{
-font-size:34px;
-}
+    .card h3 {
+      margin: 0 0 10px;
+    }
 
-.card h2{
-font-size:25px;
-}
+    .card p {
+      margin: 0;
+    }
 
-.project h3{
-font-size:22px;
-}
+    .tag {
+      display: inline-block;
+      margin: 10px 5px 0 0;
+      padding: 3px 9px;
+      border: 1px solid rgba(0, 245, 160, 0.35);
+      border-radius: 99px;
+      color: var(--green);
+      font-size: 0.78rem;
+    }
 
-}
+    .project h3 {
+      color: var(--red);
+    }
 
-</style>
+    .project-type {
+      color: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(12, 27, 44, 0.9);
+    }
+
+    .small {
+      font-size: 0.9rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .contact-card {
+      display: block;
+      padding: 18px;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(8, 22, 37, 0.92);
+      overflow-wrap: anywhere;
+      transition: 0.2s;
+    }
+
+    .contact-card:hover {
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+
+    .contact-card strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--green);
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .navlinks {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 38px;
+        padding: 58px 0;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .portrait-wrap {
+        width: min(300px, 86%);
+      }
+
+      .portrait {
+        height: 370px;
+      }
+
+      .grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 56px 0;
+        scroll-margin-top: 145px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
+  <nav class="container" aria-label="Main navigation">
+    <a class="brand" href="#home">FAMI <span>ABDI SIRAJ</span></a>
 
-<h1>Fami Abdi Siraj</h1>
-
-<h2>
-Mechanical Engineer | Software Developer | Website Developer
-</h2>
-
-<p>
-Digital Marketer | 4th Year Mechanical Engineering Student at ASTU
-</p>
-
-<p>
-Passionate about Engineering Innovation, Automation Systems and Smart Technology Solutions
-</p>
-
-<a href="Fami_Abdi_Siraj_CV.pdf" download class="btn">
-<i class="fa-solid fa-download"></i>
- Download My CV
-</a>
-
+    <div class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#profile">Profile</a>
+      <a href="#languages">Programming</a>
+      <a href="#technology">Technology</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 </header>
 
-<div class="container">
+<main>
 
-<!-- ABOUT -->
-
-<div class="card">
-
-<h2>About Me</h2>
-
-<p class="about-text">
-
-My name is <strong>Fami Abdi Siraj</strong>. I am a highly motivated 4th Year Mechanical Engineering student at Adama Science and Technology University (ASTU), expected to graduate in 2027.
-
-I have strong experience and interest in mechanical design, automation systems, hybrid technologies, software development, website development, and digital marketing. I enjoy solving engineering problems and building innovative technology solutions that improve efficiency and productivity.
-
-</p>
-
-</div>
-
-<!-- SKILLS -->
-
-<div class="card">
-
-<h2>Technical Skills</h2>
-
-<div class="skills">
-
-<div class="skill">SolidWorks</div>
-<div class="skill">AutoCAD</div>
-<div class="skill">CATIA</div>
-<div class="skill">Mechanical Design</div>
-<div class="skill">Automation Systems</div>
-<div class="skill">Hybrid Engineering</div>
-<div class="skill">Machine Design</div>
-<div class="skill">Software Development</div>
-<div class="skill">Website Development</div>
-<div class="skill">Digital Marketing</div>
-
-</div>
-
-</div>
-
-<!-- PROJECTS -->
-
-<div class="card">
-
-<h2>Engineering Projects</h2>
-
-<div class="project">
-
-<h3>Automation Car Drive Gear Design</h3>
-
-<p>
-Designed advanced automation drive gear systems to improve vehicle transmission performance, energy efficiency and mechanical reliability.
-</p>
-
-</div>
-
-<div class="project">
-
-<h3>Hybrid Solar Water Desalination & Purifier Machine</h3>
-
-<p>
-Developed an innovative hybrid solar-powered desalination and purification system for sustainable clean water production.
-</p>
-
-</div>
-
-<div class="project">
-
-<h3>Hydraulic Bottle Jack Design</h3>
-
-<p>
-Designed and modeled a high-performance hydraulic bottle jack system for industrial lifting applications and mechanical support.
-</p>
-
-</div>
-
-</div>
-
-<!-- FREELANCE -->
-
-<div class="card">
-
-<h2>Freelance Services</h2>
-
-<p class="about-text">
-
-Available for engineering design, website development, digital marketing, technical support and technology-based freelance services.
-
-</p>
-
-<a href="https://www.fiverr.com/famif8" target="_blank" class="btn">
-🌍 Hire Me on Freelance
-</a>
-
-</div>
-
-<!-- CONTACT -->
-
-<div class="card">
-
-<h2>Contact Me</h2>
-
-<div class="contact-icons">
-
-<a href="mailto:Famia2167@gmail.com">
-<i class="fas fa-envelope"></i>
-</a>
-
-<a href="tel:+251949710781">
-<i class="fas fa-phone"></i>
-</a>
-
-<a href="https://linkedin.com/in/fami-abdi-ba532a367" target="_blank">
-<i class="fab fa-linkedin"></i>
-</a>
-
-<a href="https://wa.me/251949710781" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
-
-<a href="https://github.com/famia2167-dotcom" target="_blank">
-<i class="fab fa-github"></i>
-</a>
-
-</div>
-
-</div>
-
-</div>  <!-- HOMEPAGE -->
+  <!-- HOME -->
   <section class="hero container" id="home" style="border-top:0">
 
     <div class="hero-copy">
       <div class="eyebrow">Engineering · Code · Innovation</div>
 
-      <h1>
-        <span class="name-gradient">Fami Abdi Siraj</span>
-      </h1>
+      <h1><span class="name-gradient">Fami Abdi Siraj</span></h1>
 
       <h2>
         Mechanical Engineering · Software Development · Emerging Technology
@@ -382,25 +448,20 @@ Available for engineering design, website development, digital marketing, techni
 
       <p>
         I am a Mechanical Engineering student at Adama Science and
-        Technology University (ASTU), interested in mechanical design,
-        automation, software development, artificial intelligence,
+        Technology University (ASTU), Ethiopia. My interests include
+        mechanical design, automation, software development, AI,
         robotics, and drone technology. I enjoy connecting engineering
         principles with practical solutions.
       </p>
 
       <div class="buttons">
-        <a class="btn primary" href="#projects">
-          Explore My Projects
-        </a>
-
-        <a class="btn" href="#contact">
-          Contact Me
-        </a>
+        <a class="btn primary" href="#projects">Explore My Projects</a>
+        <a class="btn" href="#contact">Contact Me</a>
       </div>
     </div>
 
     <div class="portrait-wrap">
-      <!-- Upload your photo as profile.jpg to your GitHub repository. -->
+      <!-- Upload your photo as profile.jpg to the repository. -->
       <img
         class="portrait"
         src="profile.jpg"
@@ -414,14 +475,10 @@ Available for engineering design, website development, digital marketing, techni
 
   </section>
 
-
   <!-- PROFILE -->
   <section id="profile">
     <div class="container">
-
-      <h2 class="section-title">
-        About <span>Me</span>
-      </h2>
+      <h2 class="section-title">About <span>Me</span></h2>
 
       <p class="section-intro">
         A multidisciplinary path connecting mechanical engineering,
@@ -433,8 +490,7 @@ Available for engineering design, website development, digital marketing, techni
           I study Mechanical Engineering at Adama Science and Technology
           University (ASTU), Ethiopia. My interests include CAD design,
           mechanical systems, automation, web development, software
-          development, artificial intelligence, robotics, and autonomous
-          agricultural drones.
+          development, AI, robotics, and autonomous agricultural drones.
         </p>
 
         <p>
@@ -447,22 +503,15 @@ Available for engineering design, website development, digital marketing, techni
           Mechanical Engineering, Adama Science and Technology University.
         </p>
 
-        <p class="small">
-          <strong>Location:</strong> Adama, Ethiopia
-        </p>
+        <p class="small"><strong>Location:</strong> Adama, Ethiopia</p>
       </div>
-
     </div>
   </section>
 
-
-  <!-- PROGRAMMING LANGUAGES -->
+  <!-- PROGRAMMING -->
   <section id="languages">
     <div class="container">
-
-      <h2 class="section-title">
-        Programming <span>Languages</span>
-      </h2>
+      <h2 class="section-title">Programming <span>Languages</span></h2>
 
       <p class="section-intro">
         Programming languages and database technologies I am learning
@@ -482,21 +531,15 @@ Available for engineering design, website development, digital marketing, techni
       </div>
 
       <p class="small" style="text-align:center;margin-top:18px">
-        These are learning and practice areas. Update this section
-        as your experience grows.
+        These are learning areas. Update this section as your experience grows.
       </p>
-
     </div>
   </section>
 
-
-  <!-- TECHNOLOGY AND TOOLS -->
+  <!-- TECHNOLOGY -->
   <section id="technology">
     <div class="container">
-
-      <h2 class="section-title">
-        <span>Technology</span> & Tools
-      </h2>
+      <h2 class="section-title"><span>Technology</span> & Tools</h2>
 
       <p class="section-intro">
         Tools and technical fields connected to my engineering
@@ -507,26 +550,21 @@ Available for engineering design, website development, digital marketing, techni
 
         <article class="card">
           <h3>⚙️ Mechanical Engineering</h3>
-
           <p>
             Mechanical design, CAD modeling, machine systems,
             automation concepts, and engineering problem-solving.
           </p>
-
           <span class="tag">SolidWorks</span>
           <span class="tag">AutoCAD</span>
           <span class="tag">CATIA</span>
         </article>
 
-
         <article class="card">
           <h3>💻 Web & Software</h3>
-
           <p>
             Practicing website development, programming, and
             connecting applications with databases.
           </p>
-
           <span class="tag">Acode</span>
           <span class="tag">Pydroid 3</span>
           <span class="tag">Termux</span>
@@ -534,39 +572,26 @@ Available for engineering design, website development, digital marketing, techni
           <span class="tag">Vercel</span>
         </article>
 
-
         <article class="card">
           <h3>🤖 Emerging Technology</h3>
-
           <p>
             Developing knowledge in AI, robotics, autonomous drones,
             embedded systems, and renewable-energy solutions.
           </p>
-
-          <span class="tag">Artificial Intelligence</span>
+          <span class="tag">AI</span>
           <span class="tag">Robotics</span>
           <span class="tag">UAVs</span>
           <span class="tag">Automation</span>
         </article>
 
       </div>
-
-      <p class="small" style="text-align:center;margin-top:20px">
-        Keep your portfolio accurate by distinguishing tools you have
-        used from those you are still learning.
-      </p>
-
     </div>
   </section>
-
 
   <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
-
-      <h2 class="section-title">
-        Featured <span>Projects</span>
-      </h2>
+      <h2 class="section-title">Featured <span>Projects</span></h2>
 
       <p class="section-intro">
         Selected engineering design projects and concepts.
@@ -576,54 +601,39 @@ Available for engineering design, website development, digital marketing, techni
 
         <article class="card project">
           <div class="project-type">MECHANICAL DESIGN</div>
-
           <h3>Automation Car Drive Gear Design</h3>
-
           <p>
-            A design project exploring drive-gear mechanisms
-            and their role in vehicle motion and mechanical
-            power transmission.
+            A design project exploring drive-gear mechanisms and their
+            role in vehicle motion and mechanical power transmission.
           </p>
         </article>
-
 
         <article class="card project">
           <div class="project-type">RENEWABLE ENERGY & WATER</div>
-
           <h3>Hybrid Solar Water Desalination & Purifier</h3>
-
           <p>
-            A concept combining solar energy and water treatment
-            to support cleaner-water access and energy-aware
-            operation.
+            A concept combining solar energy and water treatment to
+            support cleaner-water access and energy-aware operation.
           </p>
         </article>
 
-
         <article class="card project">
           <div class="project-type">MACHINE DESIGN</div>
-
           <h3>Hydraulic Bottle Jack Design</h3>
-
           <p>
-            A mechanical design project exploring hydraulic
-            force multiplication and lifting mechanisms.
+            A mechanical design project exploring hydraulic force
+            multiplication and lifting mechanisms.
           </p>
         </article>
 
       </div>
-
     </div>
   </section>
-
 
   <!-- CONTACT -->
   <section id="contact">
     <div class="container">
-
-      <h2 class="section-title">
-        Let's <span>Connect</span>
-      </h2>
+      <h2 class="section-title">Let's <span>Connect</span></h2>
 
       <p class="section-intro">
         For engineering projects, technology collaboration,
@@ -632,23 +642,15 @@ Available for engineering design, website development, digital marketing, techni
 
       <div class="contact-grid">
 
-        <a
-          class="contact-card"
-          href="mailto:Famia2167@gmail.com"
-        >
+        <a class="contact-card" href="mailto:Famia2167@gmail.com">
           <strong>✉ Email</strong>
           <span>Famia2167@gmail.com</span>
         </a>
 
-
-        <a
-          class="contact-card"
-          href="tel:+251949710781"
-        >
+        <a class="contact-card" href="tel:+251949710781">
           <strong>☎ Phone</strong>
           <span>+251 949 710 781</span>
         </a>
-
 
         <a
           class="contact-card"
@@ -660,7 +662,6 @@ Available for engineering design, website development, digital marketing, techni
           <span>Send a message</span>
         </a>
 
-
         <a
           class="contact-card"
           href="https://www.linkedin.com/in/fami-abdi-ba532a367"
@@ -670,7 +671,6 @@ Available for engineering design, website development, digital marketing, techni
           <strong>in LinkedIn</strong>
           <span>Professional profile</span>
         </a>
-
 
         <a
           class="contact-card"
@@ -682,41 +682,27 @@ Available for engineering design, website development, digital marketing, techni
           <span>Code and projects</span>
         </a>
 
-
         <div class="contact-card">
           <strong>📍 Location</strong>
           <span>Adama, Ethiopia</span>
         </div>
 
       </div>
-
     </div>
   </section>
 
 </main>
 
-
-<!-- FOOTER -->
 <footer>
   <div class="container">
-    © <span id="year"></span> Fami Abdi Siraj · Engineering,
-    Mathematics & Technology
+    © <span id="year"></span> Fami Abdi Siraj · Engineering, Mathematics & Technology
   </div>
 </footer>
 
-
-<!-- AUTOMATIC COPYRIGHT YEAR -->
 <script>
   document.getElementById("year").textContent =
     new Date().getFullYear();
 </script>
-
-</body>
-</html>
-
-<footer>
-<p>© 2027 Fami Abdi Siraj | Engineering Portfolio</p>
-</footer>
 
 </body>
 </html>
